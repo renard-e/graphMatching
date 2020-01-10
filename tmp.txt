@@ -1,0 +1,9 @@
+la ligne match avec une autre si :
+   	 - voyagueur ou fret
+	 - passe par les même gares ou non
+	 - dans le même département ou non
+
+ligne = nodes
+edge = voyageur, gares, departement
+
+shell de selection de lien
