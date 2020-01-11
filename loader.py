@@ -11,11 +11,12 @@
 import csv
 
 class Loader:
-    def __init__(self):
-        print("init loader")
-
     def loadDataFromFile(self, fileName):
-        with open(fileName, mode='r') as csv_file:
-            reader = csv.reader(csv_file, delimiter=',')
-            list_station = list(reader)
-        return (list_station)
+        try:
+            with open(fileName, mode='r') as csv_file:
+                reader = csv.reader(csv_file, delimiter=',')
+                list_station = list(reader)
+                return (list_station)
+        except IOError:
+            print("Error : file", fileName, "doesn't exist.")
+            return (list())

@@ -10,7 +10,6 @@
 
 import networkx as nx
 import matplotlib.pyplot as plt
-from loader import Loader
 
 class GGraph:
     __graph = nx.Graph()
