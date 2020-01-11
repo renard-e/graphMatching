@@ -16,6 +16,7 @@ class Lexer:
     __dataFromDataSet = list()
     __listChampsForEdge = list()
     __nodeSelected = None
+    __limitNode = None
     
     def __init__(self):
         self.__cmd = {"load" : self.loadFunc,
@@ -64,7 +65,6 @@ class Lexer:
                         and (self.__selectedNode == None or line_cmd[cpt] != self.__selectedNode)):
                         self.__listChampsForEdge.append(line_cmd[cpt])
                     cpt += 1
-                print(self.__listChampsForEdge)
             else:
                 print("Error : no data set is loaded")
         else:
@@ -85,7 +85,6 @@ class Lexer:
             if (len(self.__dataFromDataSet) != 0):
                 if (line_cmd[1].isdigit() and (not line_cmd[1] in self.__listChampsForEdge) and int(line_cmd[1]) <= len(self.__dataFromDataSet[0]) - 1 ):
                     self.__selectedNode = line_cmd[1]
-                    print(self.__selectedNode)
                 else:
                     print("Error : bad argument for set a node")
             else:
@@ -94,5 +93,11 @@ class Lexer:
             print("Error : set bad argument(s)")            
         
     def limitFunc(self, line_cmd):
-        print("LIMIT FUNCTION")
-    
+        if (len(line_cmd) >= 2):
+            if (line_cmd[1].isdigit()):
+                self.__limitNode = int(line_cmd[1])
+                print("limit set to ", line_cmd[1])
+            else:
+                print("Error : limit need to be a number")
+        else:
+            print("Error : bad argument(s)")
