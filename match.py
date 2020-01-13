@@ -7,3 +7,10 @@
 ## Started on  Thu Jan 9 13:56:24 2020 renard_e
 ## Last update Fri Jan 9 13:56:37 2020 renard_e
 ##
+
+from build_graph import GGraph
+
+class match:
+    def makeMatching(self, graph):
+        print("matching")
+        return (True)

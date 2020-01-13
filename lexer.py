@@ -9,14 +9,19 @@
 ##
 
 from loader import Loader
+from build_graph import GGraph
+from match import match
 
 class Lexer:
     __cmd = {}
     __loader = Loader()
+    __graph = GGraph()
+    __match = match()
     __dataFromDataSet = list()
     __listChampsForEdge = list()
     __nodeSelected = None
     __limitNode = None
+    __graphReady = False
     
     def __init__(self):
         self.__cmd = {"load" : self.loadFunc,
@@ -40,6 +45,7 @@ class Lexer:
             self.__dataFromDataSet.clear()
             self.__listChampsForEdge.clear()
             self.__selectedNode = None
+            self.__graphReady = False
             self.__dataFromDataSet = self.__loader.loadDataFromFile(line_cmd[1])
             if (len(self.__dataFromDataSet) > 0):
                 print("Data set", line_cmd[1], "loaded")
@@ -71,14 +77,34 @@ class Lexer:
             print("Error : bad argument(s) for select edges")
 
     def matchFunc(self, line_cmd):
-        print("MATCH FUNCTION")
+        if (len(self.__dataFromDataSet) != 0):
+            if (len(self.__listChampsForEdge) != 0):
+                if (self.__selectedNode != None):
+                    if (self.__graph.setGraph(self.__dataFromDataSet) == True):
+                        if (self.__match.makeMatching(self.__graph) == True):
+                            self.__graphReady = True
+                            print ("if the link between node is not clear please type a second time the graph command")
+                    else:
+                        print("Error : something wrong with setGraph Function")
+                else:
+                    print("Error : no selected node for the graph (set command)")
+            else:
+                print("Error : no selected champs for the edge (select command)")
+        else:
+            print("Error : no data set is loaded (load command)")
 
     def graphFunc(self, line_cmd):
-        #check if le node est different des edges
-        print("GRAPH FUNCTION")
+        if (self.__graphReady == True):
+            self.__graph.showGraph()
+        else:
+            print("Error : no graph loaded")
 
     def saveFunc(self, line_cmd):
-        print("SAVE FUNCTION")
+        if (len(line_cmd) >= 2):
+            if (self.__graphReady == True):
+                self.__graph.saveGraph(line_cmd[1])
+        else:
+            print("Error : no path to the file")
 
     def setFunc(self, line_cmd):
         if (len(line_cmd) >= 2):
@@ -96,7 +122,7 @@ class Lexer:
         if (len(line_cmd) >= 2):
             if (line_cmd[1].isdigit()):
                 self.__limitNode = int(line_cmd[1])
-                print("limit set to ", line_cmd[1])
+                print("limit set to :", line_cmd[1])
             else:
                 print("Error : limit need to be a number")
         else:

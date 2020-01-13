@@ -1,0 +1,8 @@
+load data.csv
+print
+select 4
+set 1
+match
+save image/test.png
+graph
+

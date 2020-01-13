@@ -9,6 +9,7 @@
 ##
 
 from lexer import Lexer
+
 def print_help():
     print("\tload [name file] - load a dataset (file .csv)")
     print("\tprint - print champs for the edges")
