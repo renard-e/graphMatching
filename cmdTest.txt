@@ -5,4 +5,4 @@ set 1
 match
 save image/test.png
 graph
-
+quit
