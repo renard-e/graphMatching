@@ -22,7 +22,7 @@ class GGraph:
     def getGraph(self):
         return (__graph)
     
-    def setGraph(self, mapData):
+    def setGraph(self, mapData, limit, edgesSelect, nodeSelect):
         self.__graph.clear()
         self.__unmatchedList.clear()
         self.__matchedList.clear()
@@ -65,5 +65,8 @@ class GGraph:
                 with_labels = True)
         plt.show()
 
-#creation des edges et des nodes puis le matching se chargera de determiner les deux lists "unmatched" et "matched", set devra aussi faire les liens entre les nodes en fonctions des critere demander
-#cree les liens apres la selection des champs voulu 
+    def setUnmatchedList(self, newList):
+        self.__unmatchedList = newList
+
+    def setMatchedList(self, newList):
+        self.__matchedList = newList

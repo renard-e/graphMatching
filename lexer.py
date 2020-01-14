@@ -46,6 +46,7 @@ class Lexer:
             self.__listChampsForEdge.clear()
             self.__selectedNode = None
             self.__graphReady = False
+            self.__limitNode = None
             self.__dataFromDataSet = self.__loader.loadDataFromFile(line_cmd[1])
             if (len(self.__dataFromDataSet) > 0):
                 print("Data set", line_cmd[1], "loaded")
@@ -80,7 +81,7 @@ class Lexer:
         if (len(self.__dataFromDataSet) != 0):
             if (len(self.__listChampsForEdge) != 0):
                 if (self.__selectedNode != None):
-                    if (self.__graph.setGraph(self.__dataFromDataSet) == True):
+                    if (self.__graph.setGraph(self.__dataFromDataSet, self.__limitNode, self.__listChampsForEdge, self.__selectedNode) == True):
                         if (self.__match.makeMatching(self.__graph) == True):
                             self.__graphReady = True
                             print ("if the link between node is not clear please type a second time the graph command")
