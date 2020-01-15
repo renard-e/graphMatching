@@ -10,7 +10,9 @@
 
 import networkx as nx
 import matplotlib.pyplot as plt
-from node import node
+from node import Node
+from edge import Edge
+
 class GGraph:
     __graph = nx.Graph()
     __node_color= "#b6cef2"
@@ -24,27 +26,21 @@ class GGraph:
     def getGraph(self):
         return (__graph)
     
-    def setGraph(self, mapData, limit, edgesSelect, nodeSelect):
+    def setGraph(self, listData, limit, edgesSelect, nodeSelect):
         self.__graph.clear()
         self.__unmatchedList.clear()
         self.__matchedList.clear()
-        self.__listEdge().clear()
-        self.__listNode().clear()
+        self.__listEdge.clear()
+        self.__listNode.clear()
 
-        self.__graph.add_node("lol")
-        self.__graph.add_node("lol2")
-        self.__unmatchedList = [(0, 9), (4, 2), (9, 7)]
-        self.__matchedList = [(1, 4), (8, 2), ("lol", "lol2")]
-        cpt = 0
-        while (cpt != 10):
-            self.__graph.add_node(cpt)
+        if (limit == None):
+            limit = len(listData)
+        cpt = 1
+        while (cpt < limit):
+            node = Node(listData[cpt][int(nodeSelect)], listData[cpt])
+            print(node.getNodeName())
             cpt += 1
-        self.__graph.add_edge(0, 9)
-        self.__graph.add_edge(4, 2)
-        self.__graph.add_edge(9, 7)
-        self.__graph.add_edge(8, 2)
-        self.__graph.add_edge(1, 4)
-        self.__graph.add_edge("lol", "lol2")
+        
         return (True)
         
     def saveGraph(self, fileName):
@@ -77,3 +73,18 @@ class GGraph:
 
     def setMatchedList(self, newList):
         self.__matchedList = newList
+
+        # self.__graph.add_node("lol")
+        # self.__graph.add_node("lol2")
+        # self.__unmatchedList = [(0, 9), (4, 2), (9, 7)]
+        # self.__matchedList = [(1, 4), (8, 2), ("lol", "lol2")]
+        # cpt = 0
+        # while (cpt != 10):
+        #     self.__graph.add_node(cpt)
+        #     cpt += 1
+        # self.__graph.add_edge(0, 9)
+        # self.__graph.add_edge(4, 2)
+        # self.__graph.add_edge(9, 7)
+        # self.__graph.add_edge(8, 2)
+        # self.__graph.add_edge(1, 4)
+        # self.__graph.add_edge("lol", "lol2")
