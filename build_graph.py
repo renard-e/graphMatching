@@ -10,7 +10,7 @@
 
 import networkx as nx
 import matplotlib.pyplot as plt
-
+from node import node
 class GGraph:
     __graph = nx.Graph()
     __node_color= "#b6cef2"
@@ -18,6 +18,8 @@ class GGraph:
     __edge_color_matched = '#00ff04'
     __matchedList = list()
     __unmatchedList = list()
+    __listNode = list()
+    __listEdge = list()
     
     def getGraph(self):
         return (__graph)
@@ -26,9 +28,13 @@ class GGraph:
         self.__graph.clear()
         self.__unmatchedList.clear()
         self.__matchedList.clear()
+        self.__listEdge().clear()
+        self.__listNode().clear()
 
+        self.__graph.add_node("lol")
+        self.__graph.add_node("lol2")
         self.__unmatchedList = [(0, 9), (4, 2), (9, 7)]
-        self.__matchedList = [(1, 4), (8, 2)]
+        self.__matchedList = [(1, 4), (8, 2), ("lol", "lol2")]
         cpt = 0
         while (cpt != 10):
             self.__graph.add_node(cpt)
@@ -38,6 +44,7 @@ class GGraph:
         self.__graph.add_edge(9, 7)
         self.__graph.add_edge(8, 2)
         self.__graph.add_edge(1, 4)
+        self.__graph.add_edge("lol", "lol2")
         return (True)
         
     def saveGraph(self, fileName):
