@@ -8,6 +8,8 @@
 ## Last update Thu Jan 15 08:27:28 2020 renard_e
 ##
 
+from node import Node
+
 class Edge:
     __isMatched = False
     __firstNode = None
@@ -24,5 +26,9 @@ class Edge:
         return (self.__isMatched)
 
     def getNodes(self):
-        return (list(self.__firstNode, self.__secondNode))
+        listNode = list()
+        
+        listNode.append(self.__firstNode.getNodeName())
+        listNode.append(self.__secondNode.getNodeName())
+        return (listNode)
         

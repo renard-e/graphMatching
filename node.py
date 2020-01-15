@@ -25,5 +25,13 @@ class Node:
 
     def getEdge(self):
         return (self.__listEdge)
+
+    def addEdge(self, newEdge):
+        self.__listEdge.append(newEdge)
+
+    def getDataNode(self):
+        return (self.__otherData);
+    
+    
     
     

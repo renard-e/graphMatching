@@ -2,6 +2,7 @@ load data.csv
 print
 select 4
 set 1
+limit 10
 match
 save image/test.png
 graph

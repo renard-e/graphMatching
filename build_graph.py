@@ -38,16 +38,43 @@ class GGraph:
         cpt = 1
         while (cpt < limit):
             node = Node(listData[cpt][int(nodeSelect)], listData[cpt])
-            print(node.getNodeName())
+            self.__listNode.append(node)
+            self.__graph.add_node(node.getNodeName())
             cpt += 1
-        
+        self.findNodeEdges(edgesSelect)
         return (True)
+
+    def findNodeEdges(self, edgesSelect):
+        cptCurrentNode = 0
+
+        while (cptCurrentNode < len(self.__listNode)):
+            cptOtherNode = 0
+            while (cptOtherNode != len(self.__listNode)):
+                if (cptOtherNode != cptCurrentNode):
+                    if (self.checkSimilarChamps(self.__listNode[cptCurrentNode], self.__listNode[cptOtherNode], edgesSelect) == True):
+                        newEdge = Edge(self.__listNode[cptCurrentNode], self.__listNode[cptOtherNode])
+                        self.__listEdge.append(Edge)
+                        self.__unmatchedList.append(newEdge.getNodes())
+                cptOtherNode += 1
+            cptCurrentNode += 1
+           
+
+    def checkSimilarChamps(self, currentNode, otherNode, edgesSelect):
+        cptEdges = 0
+        matchedEdges = 0
+        while (cptEdges < len(edgesSelect)):
+            if (currentNode.getDataNode()[int(edgesSelect[cptEdges])] == otherNode.getDataNode()[int(edgesSelect[cptEdges])]):
+                matchedEdges += 1
+            cptEdges += 1
+        if (matchedEdges == len(edgesSelect)):
+            return (True)
+        return (False)
         
     def saveGraph(self, fileName):
         plt.savefig(fileName)
         
     def showGraph(self):
-        pos = nx.spring_layout(self.__graph)
+        pos = nx.spring_layout(self.__graph, seed=1)
         nx.draw(self.__graph,
                 pos = pos,
                 node_size= 200,
