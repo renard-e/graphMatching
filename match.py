@@ -12,4 +12,7 @@ from build_graph import GGraph
 
 class match:
     def makeMatching(self, graph):
+        listEdges = graph.getUnmatchedList()
+        while (len(listEdges) != 0):
+            graph.setUnmatchedToMatched(listEdges[0])
         return (True)

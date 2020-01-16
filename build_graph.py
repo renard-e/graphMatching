@@ -101,14 +101,17 @@ class GGraph:
     def setMatchedList(self, newList):
         self.__matchedList = newList
 
-    def getUnmatcedList(self):
-        return (self.__ununmatchedList)
+    def getUnmatchedList(self):
+        return (self.__unmatchedList)
 
     def getMatcheDlist(self):
         return (self.__matchedList)
 
     def setUnmatchedToMatched(self, edge):
-        print("switch")
-        #trouve l'elem edgelist qui est une liste avec 2 node dans la unmatched, remove la et passe edge.getNode() dans matched
+        if (edge in self.__unmatchedList):
+            self.__unmatchedList.pop(self.__unmatchedList.index(edge))
+            self.__matchedList.append(edge)
+            return (True)
+        return (False)
     
     
