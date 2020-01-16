@@ -9,6 +9,7 @@
 ##
 
 class Node:
+    __isMatched = None
     __nodeName = None
     __otherData = None
     __listEdge = list()
@@ -32,6 +33,10 @@ class Node:
     def getDataNode(self):
         return (self.__otherData);
     
-    
+    def getIsMatched(self):
+        return (self.__isMatched)
+
+    def setIsMatched(self, newValue):
+        self.__isMatched = newValue
     
     

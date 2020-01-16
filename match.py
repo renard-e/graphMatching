@@ -12,5 +12,4 @@ from build_graph import GGraph
 
 class match:
     def makeMatching(self, graph):
-        print("matching")
         return (True)
