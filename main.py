@@ -8,6 +8,11 @@
 ## Last update Sat Jan 10 16:27:12 2020 renard_e
 ##
 
+# some_file.py
+import sys
+# insert at 1, 0 is the script path (or '' in REPL)
+sys.path.insert(1, 'src/')
+
 from lexer import Lexer
 
 def print_help():
