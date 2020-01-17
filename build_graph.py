@@ -114,4 +114,5 @@ class GGraph:
             return (True)
         return (False)
     
-    
+    def getListEdge(self):
+        return (self.__listEdge)

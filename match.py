@@ -9,10 +9,15 @@
 ##
 
 from build_graph import GGraph
+from edge import Edge
 
 class match:
     def makeMatching(self, graph):
-        listEdges = graph.getUnmatchedList()
-        while (len(listEdges) != 0):
-            graph.setUnmatchedToMatched(listEdges[0])
+        listEdges = graph.getListEdge()
+        for edge in listEdges: # probleme ici !!!!!!!!!
+            if (edge.firstNode == False and edge.secondNode == False):
+                listName = list()
+                listName.append(edge.firstNode.getName())
+                listName.append(edge.secondNode.getName())
+                graph.setUnmatchedToMatched(listName)
         return (True)
