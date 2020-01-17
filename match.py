@@ -10,14 +10,13 @@
 
 from build_graph import GGraph
 from edge import Edge
+from node import Node
 
 class match:
     def makeMatching(self, graph):
         listEdges = graph.getListEdge()
-        for edge in listEdges: # probleme ici !!!!!!!!!
-            if (edge.firstNode == False and edge.secondNode == False):
-                listName = list()
-                listName.append(edge.firstNode.getName())
-                listName.append(edge.secondNode.getName())
-                graph.setUnmatchedToMatched(listName)
+        for edge in listEdges:
+            if (edge.nodeIsMatched() == False):
+                graph.setUnmatchedToMatched(edge.getNodes())
+                edge.setBothNodeMatched()
         return (True)

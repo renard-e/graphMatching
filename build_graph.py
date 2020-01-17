@@ -53,7 +53,7 @@ class GGraph:
                 if (cptOtherNode != cptCurrentNode):
                     if (self.checkSimilarChamps(self.__listNode[cptCurrentNode], self.__listNode[cptOtherNode], edgesSelect) == True):
                         newEdge = Edge(self.__listNode[cptCurrentNode], self.__listNode[cptOtherNode])
-                        self.__listEdge.append(Edge)
+                        self.__listEdge.append(newEdge)
                         self.__unmatchedList.append(newEdge.getNodes())
                 cptOtherNode += 1
             cptCurrentNode += 1

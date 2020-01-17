@@ -11,32 +11,33 @@
 from node import Node
 
 class Edge:
-    isMatched = False
-    firstNode = None
-    secondNode = None
+    
+    __isMatched = False
+    __firstNode = None
+    __secondNode = None
     
     def __init__(self, firstNode, secondNode):
-        self.firstNode = firstNode
-        self.secondNode = secondNode
+        self.__firstNode = firstNode
+        self.__secondNode = secondNode
 
     def setIsMatched(self, newValue):
-        self.isMatched = newValue
+        self.__isMatched = newValue
 
     def getIsMatched(self):
-        return (self.isMatched)
+        return (self.__isMatched)
 
     def getNodes(self):
         listNode = list()
         
-        listNode.append(self.firstNode.getNodeName())
-        listNode.append(self.secondNode.getNodeName())
+        listNode.append(self.__firstNode.getNodeName())
+        listNode.append(self.__secondNode.getNodeName())
         return (listNode)
     
     def nodeIsMatched(self):
-        if (self.firstNode.getIsmatched() == True or self.secondNode.isMatched() == True):
+        if (self.__firstNode.getIsMatched() == True or self.__secondNode.getIsMatched() == True):
             return (True)
         return (False)
     
     def setBothNodeMatched(self):
-        self.firstNode.setIsMatched(True)
-        self.secondNode.setIsMatched(True)
+        self.__firstNode.setIsMatched(True)
+        self.__secondNode.setIsMatched(True)
