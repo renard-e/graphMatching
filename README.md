@@ -28,3 +28,4 @@ Here is the description and the details of the commands :
        - limit [value] - limit the number of the node
        - quit - leave the shell
 
+the advantage of this program is that you can choose whatever you want from any dataset. You can decide which nodes will be and with which link they will be linked or not.
