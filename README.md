@@ -1,4 +1,4 @@
-Hi, here is the tutorial for the matchingShell.
+Hello, here is the tutorial for the matchingShell.
 
 How to run it :
 
@@ -10,11 +10,11 @@ Library needed :
        - matplotlib.pyplot
        - csv
 
-First if you never use this shell before you can run it and see how it's work with this command line :
+First, if you never use this shell before you can run it and see how it works with this command line :
 
        - python3 main.py < cmdTest.txt
 
-if you want to see which command(s) are on cmdTest.txt you can open it.
+if you want to see which command(s) are in cmdTest.txt you can open it.
 
 Here is the description and the details of the commands :
 
@@ -28,4 +28,4 @@ Here is the description and the details of the commands :
        - limit [value] - limit the number of the node
        - quit - leave the shell
 
-the advantage of this program is that you can choose whatever you want from any dataset. You can decide which nodes will be and with which link they will be linked or not.
+The advantage of this program is that you can choose whatever you want from any dataset. You can decide which nodes you want and with which link they will be linked or not.
