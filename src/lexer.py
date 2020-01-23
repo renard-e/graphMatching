@@ -25,13 +25,15 @@ class Lexer:
     
     def __init__(self):
         self.__cmd = {"load" : self.loadFunc,
-                    "print" : self.printFunc,
-                    "select" : self.selectFunc,
-                    "match" : self.matchFunc,
-                    "graph" : self.graphFunc,
-                    "save" : self.saveFunc,
-                    "set" : self.setFunc,
-                    "limit" : self.limitFunc}
+                      "print" : self.printFunc,
+                      "select" : self.selectFunc,
+                      "match" : self.matchFunc,
+                      "graph" : self.graphFunc,
+                      "save" : self.saveFunc,
+                      "set" : self.setFunc,
+                      "limit" : self.limitFunc,
+                      "reset" : self.resetFunc
+        }
         
     def makeChoice(self, line):
         line_cmd = line.split(' ')
@@ -128,3 +130,13 @@ class Lexer:
                 print("Error : limit need to be a number")
         else:
             print("Error : bad argument(s)")
+
+
+    def resetFunc(self):
+        self.__dataFromDataSet.clear()
+        self.__listChampsForEdge.clear()
+        self.__nodeSelected = None
+        self.__limitNode = None
+        self.__graphReady = False
+        print("Reset Done")
+

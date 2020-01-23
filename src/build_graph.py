@@ -36,7 +36,7 @@ class GGraph:
         if (limit == None):
             limit = len(listData)
         cpt = 1
-        while (cpt <= limit):
+        while (cpt < limit):
             node = Node(listData[cpt][int(nodeSelect)], listData[cpt])
             self.__listNode.append(node)
             self.__graph.add_node(node.getNodeName())
