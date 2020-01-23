@@ -95,6 +95,7 @@ class GGraph:
                 font_size= 8,
                 width = 1,
                 with_labels = True)
+        self.saveGraph("image/graph.pdf")
         plt.show()
 
     def setUnmatchedList(self, newList):

@@ -29,3 +29,7 @@ Here is the description and the details of the commands :
        - quit - leave the shell
 
 The advantage of this program is that you can choose whatever you want from any dataset. You can decide which nodes you want and with which link they will be linked or not.
+
+The algorithm for the matching is : Greedy Algorithm
+
+If you have question send an email to : gregoire.renard@epitech.eu
