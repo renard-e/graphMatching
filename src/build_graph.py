@@ -75,7 +75,7 @@ class GGraph:
         
     def showGraph(self):
         pos = nx.spring_layout(self.__graph, seed=1)
-        graphTitle = "Number of matching :" + str(len(self.__matchedList)) + "\nNumber of Node : " + str(len(self.__listNode))
+        graphTitle = "Number of matching :" + str(len(self.__matchedList)) + "\nNumber of Node : " + str(len(self.__listNode) + 1)
         plt.title(graphTitle, fontsize=9)
         nx.draw(self.__graph,
                 pos = pos,
@@ -119,3 +119,6 @@ class GGraph:
     
     def getListEdge(self):
         return (self.__listEdge)
+
+    def getListNodes(self):
+        return (self.__listNode)

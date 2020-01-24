@@ -12,6 +12,7 @@ class Node:
     __isMatched = None
     __nodeName = None
     __otherData = None
+    __heuristique = 0
     __listEdge = list()
     
     def __init__(self, nodeName, otherData):
@@ -38,5 +39,9 @@ class Node:
 
     def setIsMatched(self, newValue):
         self.__isMatched = newValue
+
+    def countAndSetHeuristique(self):
+        self.__heurisitique = len(self.__listEdge)
     
-    
+    def getHeuristique(self):
+        return (self.__heuristique)

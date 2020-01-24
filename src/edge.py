@@ -15,6 +15,7 @@ class Edge:
     __isMatched = False
     __firstNode = None
     __secondNode = None
+    __heuristiqueSum = 0
     
     def __init__(self, firstNode, secondNode):
         self.__firstNode = firstNode
@@ -41,3 +42,15 @@ class Edge:
     def setBothNodeMatched(self):
         self.__firstNode.setIsMatched(True)
         self.__secondNode.setIsMatched(True)
+
+    def getFirstNode(self):
+        return (self.__firstNode)
+
+    def getSecondNode(self):
+        return (self.__secondNode)
+
+    def setHeuristiqueSum(self, hr1, hr2):
+        self.__heuristiqueSum = hr1 + hr2
+
+    def getHeuristiqueSum(self):
+        return (self.__heuristiqueSum)
