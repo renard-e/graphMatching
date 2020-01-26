@@ -48,7 +48,6 @@ class Lexer:
             self.__listChampsForEdge.clear()
             self.__selectedNode = None
             self.__graphReady = False
-            self.__limitNode = None
             self.__dataFromDataSet = self.__loader.loadDataFromFile(line_cmd[1])
             if (len(self.__dataFromDataSet) > 0):
                 print("Data set", line_cmd[1], "loaded")
@@ -132,7 +131,7 @@ class Lexer:
             print("Error : bad argument(s)")
 
 
-    def resetFunc(self):
+    def resetFunc(self, line_cmd):
         self.__dataFromDataSet.clear()
         self.__listChampsForEdge.clear()
         self.__nodeSelected = None

@@ -34,9 +34,9 @@ class GGraph:
         self.__listNode.clear()
 
         if (limit == None):
-            limit = len(listData)
+            limit = len(listData) - 1
         cpt = 1
-        while (cpt < limit):
+        while (cpt <= limit):
             node = Node(listData[cpt][int(nodeSelect)], listData[cpt])
             self.__listNode.append(node)
             self.__graph.add_node(node.getNodeName())
@@ -75,7 +75,7 @@ class GGraph:
         
     def showGraph(self):
         pos = nx.spring_layout(self.__graph, seed=1)
-        graphTitle = "Number of matching :" + str(len(self.__matchedList)) + "\nNumber of Node : " + str(len(self.__listNode) + 1)
+        graphTitle = "Number of matching :" + str(len(self.__matchedList)) + "\nNumber of Node : " + str(len(self.__listNode))
         plt.title(graphTitle, fontsize=9)
         nx.draw(self.__graph,
                 pos = pos,

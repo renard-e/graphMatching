@@ -24,6 +24,7 @@ def print_help():
     print("\tsave [path to the file] - use to save the graph")
     print("\tset [champs value] - set wich champ will be the nodes, it must be different from the selected champs for the edge(s). example : set 1")
     print("\tlimit [value] - limit the number of the node")
+    print("\treset - reset every parameters")
     print("\tquit - leave the shell")
 
 lexer = Lexer()

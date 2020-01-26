@@ -1,8 +1,8 @@
 load data.csv
 print
 limit 50
-select 4
-set 1
+select 12
+set 4
 match
 save image/test.png
 graph
